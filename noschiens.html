@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Chiens - Pik et Pik et Bouligram</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-icon">🐾</span>
+                    <span class="logo-text">Pik et Pik <span class="logo-accent">et Bouligram</span></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="noschiens.html" class="active">Nos Chiens</a></li>
+                <li><a href="portees.html">Nos Portées</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="nos-chiens">
+            <div class="container">
+                <h2>Nos Chiens</h2>
+                <p class="section-subtitle">Découvrez nos reproducteurs, élevés avec amour et passion</p>
+                
+                <div id="chiens-container" class="chiens-grid">
+                    <!-- Les chiens seront chargés ici dynamiquement -->
+                </div>
+                
+                <div id="no-chiens" class="no-content" style="display: none;">
+                    <p>Aucun chien à afficher pour le moment.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Pik et Pik et Bouligram - Élevage Canin à Poncins (42)</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js?v=2"></script>
+    <script src="js/main.js"></script>
+    <script src="js/noschiens.js?v=2"></script>
+</body>
+</html>

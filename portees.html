@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Portées - Pik et Pik et Bouligram</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-icon">🐾</span>
+                    <span class="logo-text">Pik et Pik <span class="logo-accent">et Bouligram</span></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="noschiens.html">Nos Chiens</a></li>
+                <li><a href="portees.html" class="active">Nos Portées</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="portees">
+            <div class="container">
+                <h2>Nos Portées</h2>
+                <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                    Découvrez nos adorables chiots disponibles ou à venir
+                </p>
+                
+                <!-- Portées à venir -->
+                <div id="portees-avenir-section" style="display: none;">
+                    <h3 class="section-title">📅 Portées à venir</h3>
+                    <div class="portees-grid" id="portees-avenir"></div>
+                </div>
+                
+                <!-- Portées actuelles -->
+                <div id="portees-actuelles-section">
+                    <h3 class="section-title">🐶 Chiots disponibles</h3>
+                    <div class="portees-grid" id="portees-container"></div>
+                </div>
+                
+                <!-- Archives -->
+                <div id="portees-archives-section" style="display: none; margin-top: 3rem;">
+                    <h3 class="section-title" style="color: #888;">📦 Portées passées</h3>
+                    <p style="text-align: center; color: #999; margin-bottom: 1rem; font-size: 0.9rem;">
+                        Ces chiots ont tous trouvé leur famille !
+                    </p>
+                    <div class="portees-grid archives" id="portees-archives"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Pik et Pik et Bouligram - Élevage Canin à Poncins (42)</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/portees.js"></script>
+</body>
+</html>

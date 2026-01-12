@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pik et Pik et Bouligram - Élevage Canin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-icon">🐾</span>
+                    <span class="logo-text">Pik et Pik <span class="logo-accent">et Bouligram</span></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="noschiens.html">Nos Chiens</a></li>
+                <li><a href="portees.html">Nos Portées</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-badge">🐾 Élevage Canin</span>
+                <h1>Pik et Pik <span class="highlight">et Bouligram</span></h1>
+                <p class="hero-subtitle">Élevage canin passionné situé dans la Loire (42)</p>
+                
+                <!-- Compteur de chiots -->
+                <div id="compteur-chiots" class="compteur-chiots" style="display: none;">
+                    <span class="compteur-nombre" id="nb-chiots-dispo">0</span>
+                    <span class="compteur-texte">chiot(s) disponible(s)</span>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="portees.html" class="btn-primary">Découvrir nos chiots</a>
+                    <a href="noschiens.html" class="btn-secondary-outline">Nos reproducteurs</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>↓</span>
+            </div>
+        </section>
+
+        <!-- Section Valeurs -->
+        <section class="values">
+            <div class="container">
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🏡</div>
+                        <h3>Élevage Canin</h3>
+                        <p>Nos chiots grandissent au sein de notre élevage, entourés d'amour et de soins quotidiens.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">💉</div>
+                        <h3>Suivi Vétérinaire</h3>
+                        <p>Chaque chiot part vacciné, pucé et avec un carnet de santé à jour.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">❤️</div>
+                        <h3>Sélection Rigoureuse</h3>
+                        <p>Nos reproducteurs sont sélectionnés pour leur santé et leur tempérament.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Accompagnement</h3>
+                        <p>Nous restons disponibles après l'adoption pour répondre à vos questions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section About avec image -->
+        <section class="about-new">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600" alt="Chiots heureux">
+                        <div class="about-image-badge">
+                            <span class="years">Depuis 2020</span>
+                            <span class="text">Des familles heureuses</span>
+                        </div>
+                    </div>
+                    <div class="about-text-new">
+                        <span class="section-badge">Notre Histoire</span>
+                        <h2>Bienvenue chez <span class="highlight">Pik et Pik et Bouligram</span></h2>
+                        <p>Notre passion pour les chiens nous a naturellement conduits à devenir éleveurs. Nous mettons tout notre cœur à élever des chiots en bonne santé, bien sociabilisés et prêts à rejoindre leur nouvelle famille.</p>
+                        <p>Situés dans la Loire, nous sommes à votre disposition pour répondre à toutes vos questions.</p>
+                        <ul class="about-list">
+                            <li>✅ Chiots sociabilisés dès leur naissance</li>
+                            <li>✅ Parents testés</li>
+                            <li>✅ Conseils personnalisés</li>
+                        </ul>
+                        <a href="contact.html" class="btn-primary">Nous contacter</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Aperçu Portées -->
+        <section class="preview-portees">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Nos Chiots</span>
+                    <h2>Dernières Portées</h2>
+                    <p>Découvrez nos adorables chiots disponibles ou à venir</p>
+                </div>
+                <div class="preview-grid" id="preview-portees">
+                    <!-- Chargé dynamiquement -->
+                </div>
+                <div class="preview-cta">
+                    <a href="portees.html" class="btn-primary">Voir toutes les portées</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Avis -->
+        <section class="reviews">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Témoignages</span>
+                    <h2>Ce que disent nos familles</h2>
+                    <p>Découvrez les avis de nos adoptants</p>
+                </div>
+                <div class="reviews-slider">
+                    <div class="reviews-track">
+                        <div class="review-card active">
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="review-text">"Nous avons adopté notre petite Luna il y a 6 mois et c'est un bonheur au quotidien ! L'élevage est sérieux, les chiots sont bien sociabilisés et l'équipe reste disponible pour répondre à nos questions. Je recommande à 100% !"</p>
+                            <div class="review-author">
+                                <div class="review-avatar">👩</div>
+                                <div class="review-info">
+                                    <strong>Marie D.</strong>
+                                    <span>Lyon - 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="review-text">"Un élevage familial comme on en voit peu. Les chiens sont élevés avec amour et ça se voit sur leur comportement. Notre Théo est adorable et très bien dans ses pattes. Merci pour tout !"</p>
+                            <div class="review-author">
+                                <div class="review-avatar">👨</div>
+                                <div class="review-info">
+                                    <strong>Pierre L.</strong>
+                                    <span>Saint-Étienne - 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-card">
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="review-text">"Accueil chaleureux et conseils précieux. Notre chiot était propre très rapidement grâce au travail de socialisation fait par l'élevage. Une belle rencontre et un compagnon fidèle !"</p>
+                            <div class="review-author">
+                                <div class="review-avatar">👩‍👧</div>
+                                <div class="review-info">
+                                    <strong>Sophie & famille</strong>
+                                    <span>Roanne - 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews-nav">
+                        <button class="review-btn prev" onclick="moveSlide(-1)">❮</button>
+                        <div class="reviews-dots">
+                            <span class="dot active" onclick="goToSlide(0)"></span>
+                            <span class="dot" onclick="goToSlide(1)"></span>
+                            <span class="dot" onclick="goToSlide(2)"></span>
+                        </div>
+                        <button class="review-btn next" onclick="moveSlide(1)">❯</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Localisation -->
+        <section class="location-new">
+            <div class="container">
+                <div class="location-grid">
+                    <div class="location-info-new">
+                        <span class="section-badge">Localisation</span>
+                        <h2>Où nous trouver</h2>
+                        <p>Notre élevage est situé dans le département de la Loire (42).</p>
+                        <div class="contact-cards">
+                            <div class="contact-card">
+                                <span class="contact-icon">📍</span>
+                                <div>
+                                    <strong>Adresse</strong>
+                                    <p>Loire</p>
+                                </div>
+                            </div>
+                            <div class="contact-card">
+                                <span class="contact-icon">📧</span>
+                                <div>
+                                    <strong>Contact</strong>
+                                    <p><a href="contact.html">Formulaire en ligne</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="btn-primary">Nous contacter</a>
+                    </div>
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22309.838906782847!2d4.3167!3d45.5833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f40bd1c0d8b5c9%3A0x40a5fb99a3b4b0!2s42330%20Saint-Galmier!5e0!3m2!1sfr!2sfr!4v1704672000000" width="100%" height="100%" style="border:0; border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Pik et Pik et Bouligram - Élevage Canin</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/compteur.js"></script>
+    <script src="js/preview-portees.js"></script>
+</body>
+</html>

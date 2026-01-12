@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Pik et Pik et Bouligram</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-icon">🐾</span>
+                    <span class="logo-text">Pik et Pik <span class="logo-accent">et Bouligram</span></span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="noschiens.html">Nos Chiens</a></li>
+                <li><a href="portees.html">Nos Portées</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Écran de connexion -->
+        <section class="login-screen" id="login-screen">
+            <div class="login-container">
+                <h2>🔐 Accès Administration</h2>
+                <div id="login-message"></div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="admin-email">Email</label>
+                        <input type="email" id="admin-email" required placeholder="admin@exemple.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" required placeholder="Entrez le mot de passe">
+                    </div>
+                    <button type="submit" class="btn-primary">Se connecter</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contenu admin (caché par défaut) -->
+        <section class="admin" id="admin-panel" style="display: none;">
+            <div class="admin-container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>Administration</h2>
+                    <button class="btn-delete" onclick="logout()">🚪 Déconnexion</button>
+                </div>
+                
+                <!-- Onglets -->
+                <div class="admin-tabs">
+                    <button class="admin-tab active" onclick="showTab('portees')">Gestion des Portées</button>
+                    <button class="admin-tab" onclick="showTab('chiens')">Gestion des Chiens</button>
+                </div>
+                
+                <!-- Section Portées -->
+                <div id="tab-portees" class="admin-section active">
+                    <div class="admin-form">
+                        <h3 id="form-title">Ajouter une nouvelle portée</h3>
+                        <div id="admin-message"></div>
+                        <form id="add-portee-form">
+                            <input type="hidden" id="portee-id">
+                            <div class="form-group">
+                                <label for="portee-title">Titre de la portée *</label>
+                                <input type="text" id="portee-title" required placeholder="Ex: Portée de Janvier 2026">
+                            </div>
+                            <div class="form-group">
+                                <label for="portee-race">Race *</label>
+                                <input type="text" id="portee-race" required placeholder="Ex: Golden Retriever">
+                            </div>
+                            <div class="form-group">
+                                <label for="portee-pere">Père</label>
+                                <select id="portee-pere" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                                    <option value="">-- Sélectionner le père --</option>
+                                    <!-- Chargé dynamiquement -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="portee-mere">Mère</label>
+                                <select id="portee-mere" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                                    <option value="">-- Sélectionner la mère --</option>
+                                    <!-- Chargé dynamiquement -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="portee-date">Date de naissance</label>
+                                <input type="date" id="portee-date">
+                            </div>
+                            <div class="form-group">
+                                <label for="portee-description">Description</label>
+                                <textarea id="portee-description" placeholder="Description de la portée..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="portee-image">Image</label>
+                                <input type="text" id="portee-image" placeholder="URL de l'image (ex: https://i.postimg.cc/...)">
+                                <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
+                                    💡 Hébergez vos images sur <a href="https://postimages.org/" target="_blank">PostImages</a>, puis copiez le <strong>"Direct link"</strong> ici.
+                                </p>
+                            </div>
+                            
+                            <!-- Gestion des chiots -->
+                            <div class="form-group">
+                                <label>Chiots de la portée</label>
+                                <div id="chiots-container">
+                                    <!-- Les chiots seront ajoutés ici -->
+                                </div>
+                                <button type="button" class="btn-secondary" onclick="ajouterChiot()" style="margin-top: 10px;">
+                                    ➕ Ajouter un chiot
+                                </button>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="portee-status">Statut général</label>
+                                <select id="portee-status" style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                                    <option value="disponible">Chiots disponibles</option>
+                                    <option value="reserve">Tous réservés</option>
+                                    <option value="avenir">À venir</option>
+                                    <option value="archive">📦 Archivée (portée passée)</option>
+                                </select>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button type="submit" class="btn-primary" id="submit-btn">Ajouter la portée</button>
+                                <button type="button" class="btn-secondary" onclick="resetForm()" style="display: none;" id="cancel-btn">Annuler</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="admin-list">
+                        <h3>Portées existantes</h3>
+                        <div id="portees-list">
+                            <!-- Liste des portées -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section Chiens -->
+                <div id="tab-chiens" class="admin-section">
+                    <div class="admin-form">
+                        <h3 id="chien-form-title">Ajouter un nouveau chien</h3>
+                        <div id="chien-message"></div>
+                        <form id="add-chien-form">
+                            <input type="hidden" id="chien-id">
+                            <div class="form-group">
+                                <label for="chien-nom">Nom du chien *</label>
+                                <input type="text" id="chien-nom" required placeholder="Ex: Belle">
+                            </div>
+                            <div class="form-group">
+                                <label for="chien-race">Race *</label>
+                                <input type="text" id="chien-race" required placeholder="Ex: Golden Retriever">
+                            </div>
+                            <div class="form-group">
+                                <label for="chien-sexe">Sexe *</label>
+                                <select id="chien-sexe" required style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                                    <option value="femelle">♀ Femelle</option>
+                                    <option value="male">♂ Mâle</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="chien-naissance">Date de naissance</label>
+                                <input type="date" id="chien-naissance">
+                            </div>
+                            <div class="form-group">
+                                <label for="chien-description">Description</label>
+                                <textarea id="chien-description" placeholder="Description du chien..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="chien-image">Photo</label>
+                                <input type="text" id="chien-image" placeholder="URL de l'image (ex: https://i.postimg.cc/...)">
+                                <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">
+                                    💡 Hébergez vos images sur <a href="https://postimages.org/" target="_blank">PostImages</a>, puis copiez le <strong>"Direct link"</strong> ici.
+                                </p>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button type="submit" class="btn-primary" id="chien-submit-btn">Ajouter le chien</button>
+                                <button type="button" class="btn-secondary" onclick="resetChienForm()" style="display: none;" id="chien-cancel-btn">Annuler</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="admin-list">
+                        <h3>Nos chiens</h3>
+                        <div id="chiens-list">
+                            <!-- Liste des chiens -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Pik et Pik et Bouligram - Élevage Canin à Poncins (42)</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
